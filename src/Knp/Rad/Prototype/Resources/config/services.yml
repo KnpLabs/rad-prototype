@@ -8,3 +8,10 @@ services:
             - @knp_rad_prototype.prototype.container
         tags:
             - { name: kernel.event_listener, event: kernel.controller, method: onController }
+
+    knp_rad_prototype.data_collector.prototype_collector:
+        class: Knp\Rad\Prototype\DataCollector\PrototypeCollector
+        arguments:
+            - @knp_rad_prototype.prototype.container
+        tags:
+            - { name: data_collector, template: "PrototypeBundle::wdt.html.twig", id: "knp_rad_prototype" }

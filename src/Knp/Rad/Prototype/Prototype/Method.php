@@ -20,6 +20,11 @@ class Method
      */
     public function __construct($object, $method)
     {
+        $object = true === $object instanceof Method
+            ? $object()
+            : $object
+        ;
+
         $this->object = $object;
         $this->method = $method;
     }
@@ -29,13 +34,14 @@ class Method
      */
     public function __invoke()
     {
-        $object = $this->object;
+        return call_user_func_array([$this->object, $this->method], func_get_args());
+    }
 
-        $object = true === $object instanceof Method
-            ? $object()
-            : $object
-        ;
-
-        return call_user_func_array([$object, $this->method], func_get_args());
+    /**
+     * @return \ReflectionMethod
+     */
+    public function getReflection()
+    {
+        return new \ReflectionMethod($this->object, $this->method);
     }
 }

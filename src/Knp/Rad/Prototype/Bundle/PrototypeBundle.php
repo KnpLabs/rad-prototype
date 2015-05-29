@@ -26,4 +26,9 @@ class PrototypeBundle extends Bundle
     {
         return new PrototypeExtension();
     }
+
+    public function getPath()
+    {
+        return dirname(parent::getPath());
+    }
 }

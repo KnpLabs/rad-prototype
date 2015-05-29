@@ -45,4 +45,12 @@ class Container
             }
         }
     }
+
+    /**
+     * @return array
+     */
+    public function getMethods()
+    {
+        return $this->methods;
+    }
 }

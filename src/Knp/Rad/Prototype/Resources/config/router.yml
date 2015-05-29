@@ -5,6 +5,6 @@ services:
         public: false
         arguments:
             - @router
-            - generateUrl
+            - generate
         tags:
             - { name: knp_rad_prototype.prototype_method, alias: getGenerateUrl, domain: router }
