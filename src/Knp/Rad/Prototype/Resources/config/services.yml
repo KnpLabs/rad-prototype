@@ -1,0 +1,16 @@
+services:
+    knp_rad_prototype.prototype.method.get_repository:
+        class: Knp\Rad\Prototype\Prototype\Method
+        arguments:
+            - @doctrine
+            - getRepository
+        tags:
+            - { name: knp_rad_prototype.prototype_method, alias: getRepository, domain: doctrine }
+
+    knp_rad_prototype.prototype.method.get_entity_manager:
+        class: Knp\Rad\Prototype\Prototype\Method
+        arguments:
+            - @doctrine
+            - getEntityManager
+        tags:
+            - { name: knp_rad_prototype.prototype_method, alias: getEntityManager, domain: doctrine }
