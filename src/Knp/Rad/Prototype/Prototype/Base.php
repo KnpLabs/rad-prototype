@@ -3,23 +3,32 @@
 namespace Knp\Rad\Prototype\Prototype;
 
 use Knp\Rad\Prototype\Prototype;
+use Knp\Rad\Prototype\Prototype\Controller;
 use Knp\Rad\Prototype\Prototype\Method;
 
 class Base implements Prototype
 {
+    use Controller;
+
     /**
-     * {@inheritdoc}
+     * @var string[]
      */
-    public function __set($method, Method $prototype)
+    private $scopes;
+
+    public function __construct(array $scopes = [])
     {
-        $this->$method = $prototype;
+        $this->scopes = $scopes;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function __call($method, array $arguments)
+    public function canReach($scope)
     {
-        return call_user_func_array($this->$method, $arguments);
+        if (true === empty($this->scopes)) {
+            return true;
+        }
+
+        return in_array($scope, $this->scopes);
     }
 }

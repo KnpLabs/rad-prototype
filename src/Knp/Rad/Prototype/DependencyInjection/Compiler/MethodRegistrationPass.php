@@ -4,6 +4,7 @@ namespace Knp\Rad\Prototype\DependencyInjection\Compiler;
 
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Reference;
 
 class MethodRegistrationPass implements CompilerPassInterface
 {
@@ -28,6 +29,17 @@ class MethodRegistrationPass implements CompilerPassInterface
 
                 $container->setDefinition($name, $definition);
             }
+        }
+
+        $methodContainer = $container->getDefinition('knp_rad_prototype.prototype.container');
+        $methods         = $container->findTaggedServiceIds('knp_rad_prototype.prototype_method');
+
+        foreach ($methods as $id => $tags) {
+            $tag = current($tags);
+
+            $methodContainer
+                ->addMethodCall('addMethod', [$tag['alias'], new Reference($id), $tag['domain']])
+            ;
         }
     }
 }

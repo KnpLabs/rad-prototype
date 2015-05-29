@@ -29,6 +29,13 @@ class Method
      */
     public function __invoke()
     {
-        return call_user_func_array([$this->object, $this->method], func_get_args());
+        $object = $this->object;
+
+        $object = true === $object instanceof Method
+            ? $object()
+            : $object
+        ;
+
+        return call_user_func_array([$object, $this->method], func_get_args());
     }
 }

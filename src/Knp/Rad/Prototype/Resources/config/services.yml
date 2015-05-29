@@ -1,16 +1,10 @@
 services:
-    knp_rad_prototype.prototype.method.get_repository:
-        class: Knp\Rad\Prototype\Prototype\Method
-        arguments:
-            - @doctrine
-            - getRepository
-        tags:
-            - { name: knp_rad_prototype.prototype_method, alias: getRepository, domain: doctrine }
+    knp_rad_prototype.prototype.container:
+        class: Knp\Rad\Prototype\Prototype\Container
 
-    knp_rad_prototype.prototype.method.get_entity_manager:
-        class: Knp\Rad\Prototype\Prototype\Method
+    knp_rad_prototype.event_listener.controller_as_prototype_listener:
+        class: Knp\Rad\Prototype\EventListener\ControllerAsPrototypeListener
         arguments:
-            - @doctrine
-            - getEntityManager
+            - @knp_rad_prototype.prototype.container
         tags:
-            - { name: knp_rad_prototype.prototype_method, alias: getEntityManager, domain: doctrine }
+            - { name: kernel.event_listener, event: kernel.controller, method: onController }

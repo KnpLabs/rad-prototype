@@ -7,6 +7,13 @@ use Knp\Rad\Prototype\Prototype\Method;
 interface Prototype
 {
     /**
+     * @param string $scope
+     *
+     * @return boolean
+     */
+    public function canReach($scope);
+
+    /**
      * {@inheritdoc}
      */
     public function __set($method, Method $prototype);
