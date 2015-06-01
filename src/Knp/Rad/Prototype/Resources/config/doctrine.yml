@@ -9,6 +9,36 @@ services:
         tags:
             - { name: knp_rad_prototype.prototype_method, alias: flush, domain: doctrine }
 
+    knp_rad_prototype.prototype.method.doctrine.get_entity_manager:
+        class: Knp\Rad\Prototype\Prototype\Method
+        lazy: true
+        public: false
+        arguments:
+            - @doctrine
+            - getManager
+        tags:
+            - { name: knp_rad_prototype.prototype_method, alias: getEntityManager, domain: doctrine }
+
+    knp_rad_prototype.prototype.method.doctrine.get_manager:
+        class: Knp\Rad\Prototype\Prototype\Method
+        lazy: true
+        public: false
+        arguments:
+            - @doctrine
+            - getManager
+        tags:
+            - { name: knp_rad_prototype.prototype_method, alias: getManager, domain: doctrine }
+
+    knp_rad_prototype.prototype.method.doctrine.get_repository:
+        class: Knp\Rad\Prototype\Prototype\Method
+        lazy: true
+        public: false
+        arguments:
+            - @doctrine
+            - getRepository
+        tags:
+            - { name: knp_rad_prototype.prototype_method, alias: getRepository, domain: doctrine }
+
     knp_rad_prototype.prototype.method.doctrine.persist:
         class: Knp\Rad\Prototype\Prototype\Method
         lazy: true
@@ -28,24 +58,4 @@ services:
             - remove
         tags:
             - { name: knp_rad_prototype.prototype_method, alias: remove, domain: doctrine }
-
-    knp_rad_prototype.prototype.method.doctrine.get_entity_manager:
-        class: Knp\Rad\Prototype\Prototype\Method
-        lazy: true
-        public: false
-        arguments:
-            - @doctrine
-            - getEntityManager
-        tags:
-            - { name: knp_rad_prototype.prototype_method, alias: getEntityManager, domain: doctrine }
-
-    knp_rad_prototype.prototype.method.doctrine.get_repository:
-        class: Knp\Rad\Prototype\Prototype\Method
-        lazy: true
-        public: false
-        arguments:
-            - @doctrine
-            - getRepository
-        tags:
-            - { name: knp_rad_prototype.prototype_method, alias: getRepository, domain: doctrine }
 
