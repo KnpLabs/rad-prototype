@@ -10,18 +10,17 @@ class MethodRegistrationPass implements CompilerPassInterface
 {
     public function process(ContainerBuilder $container)
     {
-        $methods     = $container->findTaggedServiceIds('knp_rad_prototype.method');
-        $definitions = [];
+        $methods = $container->findTaggedServiceIds('knp_rad_prototype.method');
 
         foreach ($methods as $id => $tags) {
             foreach ($tags as $tag) {
                 $tag = array_merge([
                     'alias'  => $tag['method'],
-                    'domain' => null
+                    'domain' => null,
                 ], $tag);
 
                 $definition = new Definition('Knp\Rad\Prototype\Prototype\Method', [
-                    sprintf('@%s', $id), $tag['method']
+                    sprintf('@%s', $id), $tag['method'],
                 ]);
                 $definition->addTag('knp_rad_prototype.prototype_method', $tag);
 

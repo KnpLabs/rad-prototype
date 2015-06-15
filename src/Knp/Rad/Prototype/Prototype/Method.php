@@ -20,7 +20,7 @@ class Method
      */
     public function __construct($object, $method)
     {
-        $object = true === $object instanceof Method
+        $object = true === $object instanceof self
             ? $object()
             : $object
         ;
