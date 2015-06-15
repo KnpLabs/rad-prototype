@@ -1,0 +1,10 @@
+services:
+    knp_rad_prototype.prototype.method.request.get_request:
+        class: Knp\Rad\Prototype\Prototype\Method
+        lazy: true
+        public: false
+        arguments:
+            - @request_stack
+            - getCurrentRequest
+        tags:
+            - { name: knp_rad_prototype.prototype_method, alias: getRequest, domain: request }
