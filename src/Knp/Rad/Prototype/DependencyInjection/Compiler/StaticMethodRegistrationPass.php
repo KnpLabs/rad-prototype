@@ -13,7 +13,7 @@ class StaticMethodRegistrationPass implements CompilerPassInterface
     {
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../../Resources/config'));
 
-        $services = ['doctrine', 'router'];
+        $services = ['doctrine', 'router', 'form'];
 
         foreach ($services as $service) {
             if (false === $container->hasDefinition($service) && false === $container->hasAlias($service)) {
