@@ -4,7 +4,7 @@ services:
         lazy: true
         public: false
         arguments:
-            - @knp_rad_prototype.prototype.method.doctrine.get_entity_manager
+            - @knp_rad_prototype.prototype.method.doctrine.get_manager
             - flush
         tags:
             - { name: knp_rad_prototype.prototype_method, alias: flush, domain: doctrine }
@@ -44,7 +44,7 @@ services:
         lazy: true
         public: false
         arguments:
-            - @knp_rad_prototype.prototype.method.doctrine.get_entity_manager
+            - @knp_rad_prototype.prototype.method.doctrine.get_manager
             - persist
         tags:
             - { name: knp_rad_prototype.prototype_method, alias: persist, domain: doctrine }
@@ -54,7 +54,7 @@ services:
         lazy: true
         public: false
         arguments:
-            - @knp_rad_prototype.prototype.method.doctrine.get_entity_manager
+            - @knp_rad_prototype.prototype.method.doctrine.get_manager
             - remove
         tags:
             - { name: knp_rad_prototype.prototype_method, alias: remove, domain: doctrine }
