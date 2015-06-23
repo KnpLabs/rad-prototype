@@ -2,8 +2,6 @@
 
 namespace Knp\Rad\Prototype\Prototype;
 
-use Knp\Rad\Prototype\Prototype\Method;
-
 trait Controller
 {
     /**

@@ -30,8 +30,6 @@ class Container
 
     /**
      * @param Prototype $prototype
-     *
-     * @return void
      */
     public function applyTo(Prototype $prototype)
     {

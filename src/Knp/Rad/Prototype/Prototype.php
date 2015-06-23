@@ -9,7 +9,7 @@ interface Prototype
     /**
      * @param string $scope
      *
-     * @return boolean
+     * @return bool
      */
     public function canReach($scope);
 

@@ -3,8 +3,6 @@
 namespace Knp\Rad\Prototype\Prototype;
 
 use Knp\Rad\Prototype\Prototype;
-use Knp\Rad\Prototype\Prototype\Controller;
-use Knp\Rad\Prototype\Prototype\Method;
 
 class Base implements Prototype
 {
