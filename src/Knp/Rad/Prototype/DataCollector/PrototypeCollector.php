@@ -2,11 +2,14 @@
 
 namespace Knp\Rad\Prototype\DataCollector;
 
+use Knp\Rad\Prototype\Prototype;
 use Knp\Rad\Prototype\Prototype\Container;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\DataCollector\DataCollector;
+use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
 use phpDocumentor\Reflection\DocBlock;
+use phpDocumentor\Reflection\DocBlock\Context;
 
 class PrototypeCollector extends DataCollector
 {
@@ -23,6 +26,21 @@ class PrototypeCollector extends DataCollector
         $this->container = $container;
     }
 
+    public function onController(FilterControllerEvent $event)
+    {
+        $controller = $event->getController();
+
+        if (true === is_array($controller)) {
+            $controller = current($controller);
+        }
+
+        if (false === $controller instanceof Prototype) {
+            return;
+        }
+
+        $this->data['controller'] = get_class($controller);
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -30,12 +48,17 @@ class PrototypeCollector extends DataCollector
     {
         foreach ($this->container->getMethods() as $domain => $methods) {
             foreach ($methods as $alias => $method) {
-                $documentation = new DocBlock($method->getReflection());
+                $rflMethod = $method->getReflection();
+                $rflClass  = $rflMethod->getDeclaringClass();
 
-                $this->data[$alias] = [
+                $context       = new Context($rflClass->getNamespaceName(), [], $rflClass->getShortName());
+                $documentation = new DocBlock($rflMethod, $context);
+
+                $this->data['methods'][$alias] = [
                     'alias'         => $alias,
                     'documentation' => $documentation,
                     'domain'        => $domain,
+                    'method'        => $rflMethod->getName(),
                 ];
             }
         }
@@ -46,7 +69,16 @@ class PrototypeCollector extends DataCollector
      */
     public function getMethods()
     {
-        return $this->data;
+        return $this->data['methods'];
+    }
+
+    public function getPrototypeController()
+    {
+        if (false === array_key_exists('controller', $this->data)) {
+            return null;
+        }
+
+        return $this->data['controller'];
     }
 
     /**

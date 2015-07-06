@@ -34,7 +34,7 @@ class AppKernel
 ##1. Method side
 
 You can create injectable methods via dependency injections. You can apply the tag `knp_rad_prototype.prototype_method`.
-For example, if I want to expose the method `getRepository` form the `@@doctrine` service, I just have to declare a new method:
+For example, if I want to expose the method `getRepository` form the `@doctrine` service, I just have to declare a new method:
 
 ```yaml
 knp_rad_prototype.prototype.method.doctrine.get_repository:
@@ -79,3 +79,13 @@ class ProductController implements Prototype
     }
 }
 ```
+
+##3. Web Debug Toolbar
+
+When your controller implements the `Knp\Rad\Prototype\Prototype` interface, the following icon will appear into the Symfony web debug toobar.
+
+<img src="doc/images/wdt.png" />
+
+And you can also access to every accessable methods from your prototypes from the Symfony profiler interface
+
+<img src="doc/images/profiler.png" />

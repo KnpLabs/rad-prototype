@@ -15,3 +15,4 @@ services:
             - @knp_rad_prototype.prototype.container
         tags:
             - { name: data_collector, template: "PrototypeBundle::wdt.html.twig", id: "knp_rad_prototype" }
+            - { name: kernel.event_listener, event: kernel.controller, method: onController }
