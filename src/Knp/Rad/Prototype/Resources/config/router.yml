@@ -7,4 +7,4 @@ services:
             - @router
             - generate
         tags:
-            - { name: knp_rad_prototype.prototype_method, alias: getGenerateUrl, domain: router }
+            - { name: knp_rad_prototype.prototype_method, alias: generateUrl, domain: router }
