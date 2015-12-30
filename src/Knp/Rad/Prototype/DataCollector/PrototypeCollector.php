@@ -4,12 +4,12 @@ namespace Knp\Rad\Prototype\DataCollector;
 
 use Knp\Rad\Prototype\Prototype;
 use Knp\Rad\Prototype\Prototype\Container;
+use phpDocumentor\Reflection\DocBlock;
+use phpDocumentor\Reflection\DocBlock\Context;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\DataCollector\DataCollector;
 use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
-use phpDocumentor\Reflection\DocBlock;
-use phpDocumentor\Reflection\DocBlock\Context;
 
 class PrototypeCollector extends DataCollector
 {
@@ -75,7 +75,7 @@ class PrototypeCollector extends DataCollector
     public function getPrototypeController()
     {
         if (false === array_key_exists('controller', $this->data)) {
-            return null;
+            return;
         }
 
         return $this->data['controller'];

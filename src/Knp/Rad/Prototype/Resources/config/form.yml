@@ -1,7 +1,6 @@
 services:
     knp_rad_prototype.prototype.method.form.create_form:
         class: Knp\Rad\Prototype\Prototype\Method
-        lazy: true
         public: false
         arguments:
             - @form.factory
@@ -11,7 +10,6 @@ services:
 
     knp_rad_prototype.prototype.method.form.create_builder:
         class: Knp\Rad\Prototype\Prototype\Method
-        lazy: true
         public: false
         arguments:
             - @form.factory
