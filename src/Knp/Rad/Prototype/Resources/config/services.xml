@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+  <services>
+
+    <service id="knp_rad_prototype.prototype.container" class="Knp\Rad\Prototype\Prototype\Container"/>
+
+    <service id="knp_rad_prototype.event_listener.controller_as_prototype_listener" class="Knp\Rad\Prototype\EventListener\ControllerAsPrototypeListener">
+      <tag name="kernel.event_listener" event="kernel.controller" method="onController"/>
+      <argument type="service" id="knp_rad_prototype.prototype.container"/>
+    </service>
+
+    <service id="knp_rad_prototype.data_collector.prototype_collector" class="Knp\Rad\Prototype\DataCollector\PrototypeCollector">
+      <tag name="data_collector" template="PrototypeBundle::wdt.html.twig" id="knp_rad_prototype"/>
+      <tag name="kernel.event_listener" event="kernel.controller" method="onController"/>
+      <argument type="service" id="knp_rad_prototype.prototype.container"/>
+    </service>
+
+  </services>
+</container>

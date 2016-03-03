@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+  <services>
+
+    <service id="knp_rad_prototype.prototype.method.touter.generate_url" class="Knp\Rad\Prototype\Prototype\Method" public="false">
+      <tag name="knp_rad_prototype.prototype_method" alias="generateUrl" domain="router"/>
+      <argument type="service" id="router"/>
+      <argument>generate</argument>
+    </service>
+
+  </services>
+</container>
