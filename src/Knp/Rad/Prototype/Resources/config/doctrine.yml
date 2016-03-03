@@ -1,7 +1,6 @@
 services:
     knp_rad_prototype.prototype.method.doctrine.flush:
         class: Knp\Rad\Prototype\Prototype\Method
-        lazy: true
         public: false
         arguments:
             - @knp_rad_prototype.prototype.method.doctrine.get_manager
@@ -11,7 +10,6 @@ services:
 
     knp_rad_prototype.prototype.method.doctrine.get_entity_manager:
         class: Knp\Rad\Prototype\Prototype\Method
-        lazy: true
         public: false
         arguments:
             - @doctrine
@@ -21,7 +19,6 @@ services:
 
     knp_rad_prototype.prototype.method.doctrine.get_manager:
         class: Knp\Rad\Prototype\Prototype\Method
-        lazy: true
         public: false
         arguments:
             - @doctrine
@@ -31,7 +28,6 @@ services:
 
     knp_rad_prototype.prototype.method.doctrine.get_repository:
         class: Knp\Rad\Prototype\Prototype\Method
-        lazy: true
         public: false
         arguments:
             - @doctrine
@@ -41,7 +37,6 @@ services:
 
     knp_rad_prototype.prototype.method.doctrine.persist:
         class: Knp\Rad\Prototype\Prototype\Method
-        lazy: true
         public: false
         arguments:
             - @knp_rad_prototype.prototype.method.doctrine.get_manager
@@ -51,7 +46,6 @@ services:
 
     knp_rad_prototype.prototype.method.doctrine.remove:
         class: Knp\Rad\Prototype\Prototype\Method
-        lazy: true
         public: false
         arguments:
             - @knp_rad_prototype.prototype.method.doctrine.get_manager

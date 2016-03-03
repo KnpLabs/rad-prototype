@@ -1,7 +1,6 @@
 services:
     knp_rad_prototype.prototype.method.touter.generate_url:
         class: Knp\Rad\Prototype\Prototype\Method
-        lazy: true
         public: false
         arguments:
             - @router
