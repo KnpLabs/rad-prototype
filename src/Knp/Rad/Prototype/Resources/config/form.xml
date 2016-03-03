@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+  <services>
+
+    <service id="knp_rad_prototype.prototype.method.form.create_form" class="Knp\Rad\Prototype\Prototype\Method" public="false">
+      <tag name="knp_rad_prototype.prototype_method" alias="createForm" domain="form"/>
+      <argument type="service" id="form.factory"/>
+      <argument>create</argument>
+    </service>
+
+    <service id="knp_rad_prototype.prototype.method.form.create_builder" class="Knp\Rad\Prototype\Prototype\Method" public="false">
+      <tag name="knp_rad_prototype.prototype_method" alias="createFormBuilder" domain="form"/>
+      <argument type="service" id="form.factory"/>
+      <argument>createBuilder</argument>
+    </service>
+
+  </services>
+</container>
