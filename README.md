@@ -4,6 +4,7 @@ Automatically inject methods into objects
 
 [![Build Status](https://travis-ci.org/KnpLabs/rad-prototype.svg?branch=master)](https://travis-ci.org/KnpLabs/rad-prototype)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/KnpLabs/rad-prototype/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/KnpLabs/rad-prototype/?branch=master)
+[![Latest Stable Version](https://poser.pugx.org/knplabs/rad-prototype/v/stable)](https://packagist.org/packages/knplabs/rad-prototype) [![Total Downloads](https://poser.pugx.org/knplabs/rad-prototype/downloads)](https://packagist.org/packages/knplabs/rad-prototype) [![Latest Unstable Version](https://poser.pugx.org/knplabs/rad-prototype/v/unstable)](https://packagist.org/packages/knplabs/rad-prototype) [![License](https://poser.pugx.org/knplabs/rad-prototype/license)](https://packagist.org/packages/knplabs/rad-prototype)
 
 #Installation
 
