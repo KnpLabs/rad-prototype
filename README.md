@@ -9,7 +9,7 @@ Automatically inject methods into objects
 #Installation
 
 ```bash
-composer require knplabs/rad-prototype ~1.0
+composer require knplabs/rad-prototype ~2.0
 ```
 
 ```php
