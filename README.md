@@ -6,7 +6,7 @@ Automatically inject methods into objects
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/KnpLabs/rad-prototype/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/KnpLabs/rad-prototype/?branch=master)
 [![Latest Stable Version](https://poser.pugx.org/knplabs/rad-prototype/v/stable)](https://packagist.org/packages/knplabs/rad-prototype) [![Total Downloads](https://poser.pugx.org/knplabs/rad-prototype/downloads)](https://packagist.org/packages/knplabs/rad-prototype) [![Latest Unstable Version](https://poser.pugx.org/knplabs/rad-prototype/v/unstable)](https://packagist.org/packages/knplabs/rad-prototype) [![License](https://poser.pugx.org/knplabs/rad-prototype/license)](https://packagist.org/packages/knplabs/rad-prototype)
 
-#Installation
+# Installation
 
 ```bash
 composer require knplabs/rad-prototype ~2.0
@@ -30,9 +30,9 @@ class AppKernel
 }
 ```
 
-#Usages
+# Usages
 
-##1. Method side
+## 1. Method side
 
 You can create injectable methods via dependency injections. You can apply the tag `knp_rad_prototype.prototype_method`.
 For example, if I want to expose the method `getRepository` form the `@doctrine` service, I just have to declare a new method:
@@ -52,9 +52,9 @@ The first argument should be a service or a classname (for static methods), the 
 The `alias` tag option represent the method name inside the prototype, so in this case, I can call the method with `$this->getRepository()`.
 Finaly, the `domain` tag option represent the domain of this method, a prototype can recieve method of some domains.
 
-##2. Prototype side
+## 2. Prototype side
 
-###2.1. Attach methods to a controller
+### 2.1. Attach methods to a controller
 
 Access to methods from a controller
 
@@ -81,7 +81,7 @@ class ProductController implements Prototype
 }
 ```
 
-##3. Web Debug Toolbar
+## 3. Web Debug Toolbar
 
 When your controller implements the `Knp\Rad\Prototype\Prototype` interface, the following icon will appear into the Symfony web debug toobar.
 
