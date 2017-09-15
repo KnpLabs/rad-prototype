@@ -5,7 +5,6 @@ namespace spec\Knp\Rad\Prototype\Prototype;
 use Knp\Rad\Prototype\Prototype;
 use Knp\Rad\Prototype\Prototype\Method;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class ContainerSpec extends ObjectBehavior
 {
